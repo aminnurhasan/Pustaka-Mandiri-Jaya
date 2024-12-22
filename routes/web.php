@@ -24,4 +24,12 @@ Route::get('/logout', [AdminController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth', 'admin'])->group(function(){
     Route::get('/admin/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+
+    Route::get('/admin/buku', [AdminController::class, 'buku'])->name('buku.index');
+    Route::get('/admin/buku/tambah', [AdminController::class, 'create'])->name('buku.tambah');
+    Route::post('/admin/buku/store', [AdminController::class, 'store'])->name('buku.store');
+    Route::get('/admin/buku/{id}', [AdminController::class, 'show'])->name('buku.show');
+    Route::get('/admin/buku/edit/{id}', [AdminController::class, 'edit'])->name('buku.edit');
+    Route::put('/admin/buku/update/{id}', [AdminController::class, 'update'])->name('buku.update');
+    Route::delete('/admin/buku/delete/{id}', [AdminController::class, 'destroy'])->name('buku.hapus');
 });
